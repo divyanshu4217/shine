@@ -1,0 +1,92 @@
+{%  load customtag %}
+<p>LowerCase</p>
+<h2>
+{% filter force_escape|lower %}
+Want TO COnverT THis In LowerCase
+{% endfilter %}
+</h2>
+
+{% comment %}
+This is comment
+{% endcomment %}
+
+<br>
+<br>
+<p>this is firstof</p>
+{% firstof var1 var2 %}
+
+
+<p>This is for reversed</p>
+{% for i,val in lis reversed%}
+    <li>{{i}} pe {{val}}</li>
+    {% ifchanged %}
+<p>If, you have changed</p>
+{% endifchanged %}
+{% endfor %}
+
+<p> Empty in for</p>
+{% for l,k in lis %}
+<l1>{{l}}</l1>
+{% empty %}
+<p>Execute this empty block</p>
+{% endfor %}
+
+<p>If, it is</p>
+{% if var1 %}
+<p>if is {{ var1}}</p>
+{% endif %}
+
+
+
+<p> If changed </p>
+{% ifchanged %}
+<p>If, you have changed</p>
+{% endifchanged %}
+
+
+<p>Space is here</p>
+{% spaceless %}
+<div>
+<p>this is a space</p>      
+
+
+
+                                       <p>This is another space</p>
+</div> 
+{% endspaceless %}
+
+
+<p> Escaping with template tag</p>
+{% templatetag openblock %}
+if haha
+{% templatetag closeblock %}
+
+
+<p>This is verbatim</p>
+{%  verbatim %}
+{{haha}} {{var1}}
+{% endverbatim %}
+
+<p>Add filter</p>
+{{ var1|add:'11'}}
+
+<p>Cap is going to be first</p>
+{{"this is the desired string"|capfirst}}
+
+<p>The power of cut</p>
+{{ "fstring ifs sfuper"|cut:'f'}}
+
+<p> Custom filter it is</p>
+{{ var1 | errors_to_string }}
+
+<!-- 
+<p>Custom tag</p>
+<br><br>
+<p>Simple custom tag</p>
+{% extract 12345678 "add karo na" as dna %}
+this is {{dna}}
+
+<p>Inclusion tag</p>
+
+{% custominclusion %} -->
+

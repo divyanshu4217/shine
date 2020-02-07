@@ -1,0 +1,12 @@
+{% load static from staticfiles %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<h1>Article_List</h1>
+<div class="articles back">
+    {% for article in articles %} 
+    <div class="article">
+        <h2><a href = "{% url 'articles:detail' article.slug %}" >{{article.title}}</a></h2>
+        <p>{{ article.snippet }}</p>
+        <p>{{ article.date }}</p>
+    </div>
+    {% endfor %}
+</div>                     
